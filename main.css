@@ -3,12 +3,12 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: pink;
+    background-color: #ffb6c1;
     font-family: Arial, sans-serif;
 }
 
 .card-container {
-    perspective: 1000px;
+    perspective: 1500px;
 }
 
 .card {
@@ -16,11 +16,11 @@ body {
     height: 200px;
     position: relative;
     transform-style: preserve-3d;
-    transition: transform 1s;
+    transition: transform 1s ease-in-out;
     cursor: pointer;
 }
 
-.front, .inside {
+.card-front, .card-back {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -30,20 +30,33 @@ body {
     align-items: center;
     text-align: center;
     border-radius: 10px;
-}
-
-.front {
-    background: white;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.inside {
+.card-front {
+    background: white;
+}
+
+.card-back {
     background: white;
     transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.letter {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
 }
 
 .open {
     transform: rotateY(180deg);
+}
+
+.open .letter {
+    opacity: 1;
+    transform: translateY(0);
 }
