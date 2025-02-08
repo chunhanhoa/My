@@ -1,3 +1,4 @@
 function openCard() {
-    document.querySelector(".card").classList.toggle("open");
+    let card = document.querySelector(".card");
+    card.classList.toggle("open");
 }
